@@ -1,13 +1,237 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: 'Helvetica Neue', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #545454;
+  background-color: rgba(0,0,0,0.05);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  margin: 3vw;
+}
+
+dd, dt {
+  display: inline-block;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #545454;
+}
+
+button:focus,
+a:focus {
+  outline: none;
+  border: 2px solid #696969;
+}
+
+.btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: inherit;
+  color: #545454;
+  white-space: nowrap;
+}
+
+.btn--fixed {
+  position: fixed;
+  bottom: 5vw;
+  right: 5vw;
+  padding: 10px;
+  z-index: 1;
+  border-radius: 30px;
+  font-size: 25px;
+  line-height: 40px;
+  min-width: 60px;
+  max-width: 60px;
+  height: 60px;
+  overflow: hidden;
+  background-color: #F9F9F9;
+  box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.1);
+  transition: box-shadow 0.5s ease-in, max-width 0.7s ease-in-out;
+}
+
+.btn--filter .btn__label {
+  position: relative;
+  left: -2px;
+}
+
+.btn--filter.btn--fixed .btn__label {
+  bottom: 10px;
+  left: -3px;
+}
+
+.btn--fixed:hover {
+  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.1);
+  max-width: 500px;
+}
+
+.btn--rounded {
+  border: 1px solid #696969;
+  border-radius: 20px;
+  margin: 0 2px 4px;
+  padding: 5px 7px;
+}
+
+.btn--rounded .btn__label:after {
+  content: '...';
+  display: inline-block;
+  transition: max-width 0.3s ease-in;
+  max-width: 7px;
+  color: transparent;
+}
+
+.btn--rounded[active="true"] {
+  background-color: #696969;
+  color: white;
+}
+
+.btn--rounded .icon--filter {
+  transition: max-width 0.3s ease-in, opacity 0.2s ease-in;
+  max-width: 10px;
+  opacity: 0;
+}
+
+.btn--rounded:hover .icon--filter,
+.btn--rounded[active="true"] .icon--filter {
+  max-width: 20px;
+  opacity: 1;
+}
+
+.btn--rounded:hover .btn__label:after,
+.btn--rounded[active="true"] .btn__label:after {
+  max-width: 0;
+}
+
+.btn--rounded[active="true"]:hover .btn__label:after {
+  max-width: 7px;
+}
+
+.btn--rounded[active="true"]:hover .icon--filter {
+  max-width: 10px;
+  opacity: 0;
+}
+
+.grid-list {
+  max-width: 2500px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .grid-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1900px) {
+  .grid-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.1);
+  transition: transform 0.15s ease, box-shadow 0.2s ease-in;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+}
+
+a.card {
+  display: block;
+  height: 100%;
+}
+
+a.card:hover,
+a.card:focus {
+  box-shadow: 0px 0px 12px 5px rgba(0,0,0,0.1);
+  transform: scale(1.015);
+}
+
+.card .desc-list {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.desc-list-item {
+  display: flex;
+  padding: 15px 4vw;
+}
+
+.page-wrapper--lister .desc-list-item {
+  padding: 10px 4vw;
+}
+
+@media (min-width: 992px) {
+  .page-wrapper--lister .desc-list-item {
+    padding: 10px 25px;
+  }
+}
+
+.desc-list-item dt {
+  width: 25%;
+  max-width: 350px;
+  padding-right: 10px;
+  font-weight: bold;
+  color: #696969;
+}
+
+.desc-list-item dd {
+  width: 75%;
+}
+
+.desc-list-item:nth-child(even) {
+  background-color: rgba(0,0,0,0.025);
+}
+
+.desc-list-item:first-child {
+  padding-top: 25px;
+}
+
+.desc-list-item:last-child {
+  padding-bottom: 25px;
+  flex-grow: 1;
+}
+
+.img--round {
+  width: 8vw;
+  min-width: 100px;
+  margin: 5vw 5vw 0;
+  border-radius: 50%;
+}
+
+.page-wrapper--detail {
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+.page-wrapper--detail .desc-list-item:first-child dt {
+  align-self: flex-end;
+}
+
+.page-wrapper--detail .desc-list-item:first-child dd {
+  font-size: 6.5vw;
+  line-height: 6vw;
+  font-weight: bold;
 }
