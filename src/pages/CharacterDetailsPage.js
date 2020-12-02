@@ -29,9 +29,9 @@ const CharacterDetailsPage = () => {
   }, [character, dispatch])
 
   return (
-    <div className='page-wrapper--detail'>
+    <div className='page__wrapper--detail'>
     <Link className='btn btn--fixed' to='/'>
-      -
+      <span className='btn__arrow'>←</span>
       <span className='btn__label'>Back to all characters list</span>
     </Link>
     { character ?
