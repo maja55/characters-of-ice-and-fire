@@ -13,6 +13,7 @@ Project was bootstrapped with [Create React App](https://github.com/facebook/cre
 * [Available Scripts](#available-scripts)
 * [Deployment](#deployment-and-ci)
 * [Technologies](#technologies)
+* [Wip](#todo)
 
 
 ## Installing
@@ -62,3 +63,9 @@ The tech stack core of the project:
 * [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html) - A JavaScript library for typechecking props on react components
 * [ReactRouter](https://reactrouter.com/) - A collection of navigational components for Client Side Routing
 * [SASS](https://sass-lang.com/) - CSS extension language
+
+
+## TODO
+* Characters - Only fetch first page and add intersection observers to fetch on scroll (or when filter applied)
+* Houses - Suspend field and only fetch on character card mount
+* Cache responses on client to enable fetch from cache or server
