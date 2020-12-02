@@ -21,11 +21,11 @@
   0%,
   80%,
   100% {
-    box-shadow: 0 2.5em 0 -1.3em $grey-400;
+    box-shadow: 0 2.5em 0 -1.3em $grey-300;
   }
 
   40% {
-    box-shadow: 0 2.5em 0 0 $grey-400;
+    box-shadow: 0 2.5em 0 0 $grey-300;
   }
 }
 
@@ -34,10 +34,6 @@
   font-size: 5px;
   margin: 0 auto;
   position: relative;
-  // top: 50%;
-  // left: 0;
-  // right: 0;
-  text-indent: -9999em;
 
   &::before,
   &::after,
@@ -65,3 +61,8 @@
   @include loader_animating();
 }
 
+.loader--inline {
+  display: inline-block;
+  margin: 0 $spacer*2 0 $spacer*3;
+  top: -$spacer/2;
+}

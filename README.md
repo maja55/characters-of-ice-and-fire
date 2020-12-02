@@ -66,7 +66,6 @@ The tech stack core of the project:
 
 
 ## TODO
-* Houses - Suspend field and only fetch on character card mount
-* Add tests
-* Cache responses on client to enable fetch from cache or server
-* Card on mount transition (fade-in or scroll-up)
+* Add more tests
+* Cache responses on client (local storage) to enable fetch from cache or server
+* Add card on mount transition (fade-in or scroll-up)

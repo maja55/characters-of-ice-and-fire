@@ -28,6 +28,7 @@ h1 {
 
 body {
   font-size: 0.8rem;
+  line-height: 1.5;
   font-family: 'Helvetica Neue', 'Segoe UI', 'Roboto', sans-serif;
   color: $grey-400;
   -webkit-font-smoothing: antialiased;
@@ -60,7 +61,7 @@ $spacer: 10px;
   max-width: $screen-xxxl;
   margin: 0 auto;
 
-  &--lister .desc-list-item {
+  &--lister .desc-list__item {
     padding: $spacer 4vw;
   
     @media (min-width: $screen-md) {
@@ -68,7 +69,7 @@ $spacer: 10px;
     }
   }
 
-  &--detail .desc-list-item:first-child dt {
+  &--detail .desc-list__item:first-child dt {
     align-self: flex-end;
   }
 }

@@ -7,7 +7,7 @@ import OnScrollLoader from '../components/OnScrollLoader'
 
 
 const CharacterListerPage = () => {
-  const { characters, activeFilter, nextPage } = useContext(StateContext)
+  const { characters, activeFilter, nextUrl } = useContext(StateContext)
 
   return (
     <div className='page__wrapper page__wrapper--lister'>
@@ -47,7 +47,7 @@ const CharacterListerPage = () => {
         </ul>
       }
       <br/>
-      { nextPage && <OnScrollLoader url={ nextPage } /> }
+      { nextUrl && <OnScrollLoader url={ nextUrl } /> }
     </div>
   )
 }

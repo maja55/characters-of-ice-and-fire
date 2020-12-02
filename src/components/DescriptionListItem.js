@@ -1,8 +1,7 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import StateContext from '../context'
-import { getProp } from '../utils/objectUtils'
-import FilterButton from './FilterButton'
+import ResourceValueLoader from './ResourceValueLoader'
+
 
 const DescriptionListItem = ({
   isFilter,
@@ -11,44 +10,27 @@ const DescriptionListItem = ({
   resourceType,
   values
 }) => {
-  const state = useContext(StateContext)
-  const [resourceValues, setResourceValues] = useState(new Array(values.length))
-  const resourceState = resourceType ? state[resourceType] : null
-  const textValues = resourceType ? resourceValues : values
   const ValueTag = fullView && label === 'Name' ? 'h1' : 'div'
 
-  useEffect(() => {
-    if (resourceType) {
-      values.forEach((value, i) => {
-        const newValue = getProp(resourceState.get(value), 'name')
-        
-        setResourceValues(prevValues => {
-          if (prevValues[i] !== newValue) {
-            const newValues = [...prevValues]
-            newValues[i] = newValue
-            return newValues
-          }
-          return prevValues
-        })
-      })
-    }
-  }, [resourceState, resourceType, values])
-
   return (
-    <div className='desc-list-item'>
+    <div className='desc-list__item'>
       <dt>{ label }</dt>
       <dd>
-        { (textValues.length === 0 || !textValues[0]) && <div>/</div> }
-        { isFilter ? textValues.map((value, i) => (
-          <FilterButton
-            key={ value || i }
-            filter={ {
-              label: value,
-              type: resourceType,
-              key: values[i]
-            } }
-          />
-        )) : <ValueTag>{ textValues.join(', ') }</ValueTag> }
+        { (values.length === 0 || !values[0]) && <div>/</div> }
+        { 
+          resourceType ? 
+            values.map((value, i) => (
+              <ResourceValueLoader
+                key={ value }
+                isFilter={ isFilter }
+                isLast={ i === values.length - 1 }
+                resourceType={ resourceType }
+                url={ value }
+              />
+            ))
+          : 
+            <ValueTag>{ values.join(', ') }</ValueTag>
+        }
       </dd>
     </div>
   )

@@ -21,6 +21,10 @@ button, a {
     background-color: $grey-300;
     color: $light;
   }
+
+  &[disabled="true"] {
+    pointer-events: none;
+  }
 }
 
 .btn__label {
