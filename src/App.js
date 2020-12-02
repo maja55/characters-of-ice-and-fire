@@ -6,7 +6,6 @@ import reducer from './reducer'
 import AppStateContext, { initialAppState } from './context'
 import CharacterListerPage from './pages/CharacterListerPage';
 import CharacterDetails from './pages/CharacterDetailsPage';
-import './App.css';
 
 
 const App = () => {

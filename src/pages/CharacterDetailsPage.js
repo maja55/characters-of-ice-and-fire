@@ -30,8 +30,11 @@ const CharacterDetailsPage = () => {
 
   return (
     <div className='page__wrapper--detail'>
-    <Link className='btn btn--fixed' to='/'>
-      <span className='btn__arrow'>←</span>
+    <Link
+      className='btn btn--fixed'
+      style={{ display: 'inline-flex' }}
+      to='/'>
+      <span className='btn__icon btn__icon--font'>←</span>
       <span className='btn__label'>Back to all characters list</span>
     </Link>
     { character ?
@@ -47,7 +50,7 @@ const CharacterDetailsPage = () => {
         />
       </div>
       :
-      '...loading' //create Loader component
+      '...loading' // TODO: create Loader component
     }
     </div>
   )

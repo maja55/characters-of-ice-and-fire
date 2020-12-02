@@ -1,0 +1,57 @@
+// breakpoints
+
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 960px;
+$screen-lg: 1200px;
+$screen-xl: 1440px;
+$screen-xxl: 1600px;
+$screen-xxxl: 1920px;
+
+
+// colors
+
+$dark: #000000;
+$light: #ffffff;
+$grey-100: #F9F9F9;
+$grey-200: #F2F2F2;
+$grey-300: #696969;
+$grey-400: #545454;
+
+
+// spacing
+
+$spacer: 10px;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+// typography
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+body {
+  font-size: 0.8rem;
+  font-family: 'Helvetica Neue', 'Segoe UI', 'Roboto', sans-serif;
+  color: $grey-400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $grey-200;
+  padding: 5vw 3vw;
+}
+
+@media screen and (min-width: $screen-sm) {
+  h1 { font-size: 2rem; }
+  body { font-size: 1rem; }
+}
+
+@media screen and (min-width: $screen-xl) {
+  h1 { font-size: 2.5rem; }
+  body { font-size: 1.2rem; }
+}
