@@ -11,13 +11,15 @@ const ResourceValueLoader = ({ isFilter, isLast, url, resourceType }) => {
   const { name, isLoading } = resourceState.get(url) || {}
 
   useEffect(() => {
-    if (!name && resourceType === 'houses' && !isLoading) {
+    if (!name && resourceType !== 'books' && !isLoading) {
+      const actionType = `ADD_${resourceType.replace(/s$/, '').toUpperCase()}`
+      
       dispatch({
-        type: 'ADD_HOUSE',
+        type: actionType,
         payload: { data: { isLoading: true }, url }
       })
       fetchApi({ url, cb: (data) => dispatch({ 
-        type: 'ADD_HOUSE',
+        type: actionType,
         payload: { data, url } 
       }) })
     }

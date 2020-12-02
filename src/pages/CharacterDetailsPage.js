@@ -14,6 +14,16 @@ const CharacterDetailsPage = () => {
   const character = characters.get(characterUrl);
 
   useEffect(() => {
+    if (!character) {
+      fetchApi({
+        url: characterUrl,
+        cb: (data) => dispatch({ 
+          type: 'ADD_CHARACTER',
+          payload: { data, url: characterUrl } 
+        })
+      })
+    }
+
     if (character && !character.picture) {
       fetchApi({
         url: API_RESOURCES.pictures.replace('[gender]', character.gender.toLowerCase()),
@@ -26,7 +36,7 @@ const CharacterDetailsPage = () => {
         })
       })
     }
-  }, [character, dispatch])
+  }, [character, characterUrl, dispatch])
 
   return (
     <div className='page__wrapper page__wrapper--detail'>
