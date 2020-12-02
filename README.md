@@ -66,7 +66,7 @@ The tech stack core of the project:
 
 
 ## TODO
-* Characters - Only fetch first page and add intersection observers to fetch on scroll (or when filter applied)
 * Houses - Suspend field and only fetch on character card mount
-* Cache responses on client to enable fetch from cache or server
 * Add tests
+* Cache responses on client to enable fetch from cache or server
+* Card on mount transition (fade-in or scroll-up)

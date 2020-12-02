@@ -12,7 +12,7 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, initialAppState);
 
   useEffect(() => {
-    // load first page of characters
+    // load first page of characters and set next page url to state
     fetchApi({
       url: API_RESOURCES.characters,
       cb: (data, nextPage) => {
@@ -21,7 +21,7 @@ const App = () => {
       }
     })
 
-    // progressively set all books to state (page by page)
+    // progressively load all books to state (page by page)
     fetchAll({
       url: API_RESOURCES.books,
       cb: (data) => dispatch({ type: 'ADD_BOOKS', payload: data })
