@@ -21,6 +21,6 @@ export function ensureArray(value) {
  */
 export function getProp(obj, key, fallbackValue=undefined) {
   return key.split('.').reduce((o, x) => {
-      return typeof o === 'undefined' || o === null ? undefined : o[x];
+      return typeof o === 'undefined' || o === null ? fallbackValue : o[x];
   }, obj);
 }

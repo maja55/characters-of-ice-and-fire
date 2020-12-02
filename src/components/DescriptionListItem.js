@@ -41,7 +41,7 @@ const DescriptionListItem = ({
         { (textValues.length === 0 || !textValues[0]) && <div>/</div> }
         { isFilter ? textValues.map((value, i) => (
           <FilterButton
-            key={ value }
+            key={ value || i }
             filter={ {
               label: value,
               type: resourceType,

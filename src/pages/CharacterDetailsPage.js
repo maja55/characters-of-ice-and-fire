@@ -9,7 +9,7 @@ import Image from '../components/Image';
 
 const CharacterDetailsPage = () => {
   const { characterId } = useParams();
-  const characterUrl = [API_RESOURCES.characters, characterId].join('/')
+  const characterUrl = [API_RESOURCES.characters.split('?')[0], characterId].join('/')
   const { characters, dispatch } = useContext(StateContext);
   const character = characters.get(characterUrl);
 
