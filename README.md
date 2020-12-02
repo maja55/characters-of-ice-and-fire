@@ -1,6 +1,6 @@
 # characters-of-ice-and-fire
 
-Repository containing Front End code and styles for `Characters of Ice and Fire`(https://characters-of-ice-and-fire.netlify.app/) web application developed as technical assignment.
+Repository containing Front End code and styles for [`Characters of Ice and Fire`](https://characters-of-ice-and-fire.netlify.app/) web application developed as technical assignment.
 
 Project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
