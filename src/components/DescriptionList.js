@@ -18,6 +18,7 @@ const DescriptionList = ({ character, fullView=false }) => {
           { ...props }
           key={ propertyName }
           label={ label || propertyName.charAt(0).toUpperCase() + propertyName.slice(1) }
+          fullView={ fullView }
           values={ ensureArray(character[propertyName]) }
           isFilter={ isFilter && !fullView }
         />

@@ -40,34 +40,52 @@ a:focus {
   font-size: inherit;
   color: #545454;
   white-space: nowrap;
+  padding: 5px;
 }
 
 .btn--fixed {
   position: fixed;
-  bottom: 5vw;
-  right: 5vw;
-  padding: 10px;
+  bottom: 2vw;
+  right: 2vw;
   z-index: 1;
-  border-radius: 30px;
-  font-size: 25px;
-  line-height: 40px;
-  min-width: 60px;
-  max-width: 60px;
-  height: 60px;
+  padding: 10px;
+  border-radius: 25px;
+  font-size: 20px;
+  line-height: 30px;
+  min-width: 50px;
+  max-width: 50px;
+  height: 50px;
   overflow: hidden;
   background-color: #F9F9F9;
   box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.1);
   transition: box-shadow 0.5s ease-in, max-width 0.7s ease-in-out;
 }
 
-.btn--filter .btn__label {
-  position: relative;
-  left: -2px;
+.btn--fixed .btn__arrow {
+  font-size: 32px;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 20px;
 }
 
-.btn--filter.btn--fixed .btn__label {
-  bottom: 10px;
-  left: -3px;
+.btn--fixed .icon--filter {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.btn--rounded .icon--filter {
+  width: 20px;
+  height: 20px;
+}
+
+.page__wrapper--detail .btn--fixed {
+  display: inline-flex;
+}
+
+
+.btn__label {
+  vertical-align: middle;
 }
 
 .btn--fixed:hover {
@@ -78,16 +96,17 @@ a:focus {
 .btn--rounded {
   border: 1px solid #696969;
   border-radius: 20px;
+}
+
+.btn--filter.btn--rounded {
   margin: 0 2px 4px;
-  padding: 5px 7px;
 }
 
 .btn--rounded .btn__label:after {
-  content: '...';
+  content: '';
   display: inline-block;
-  transition: max-width 0.3s ease-in;
-  max-width: 7px;
-  color: transparent;
+  transition: min-width 0.3s ease-in;
+  min-width: 10px;
 }
 
 .btn--rounded[active="true"] {
@@ -95,10 +114,29 @@ a:focus {
   color: white;
 }
 
+.icon--filter {
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.icon--filter svg {
+  fill: currentColor;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
 .btn--rounded .icon--filter {
   transition: max-width 0.3s ease-in, opacity 0.2s ease-in;
   max-width: 10px;
   opacity: 0;
+}
+
+.btn--rounded .icon--filter svg {
+  padding-right: 3px;
 }
 
 .btn--rounded:hover .icon--filter,
@@ -109,11 +147,11 @@ a:focus {
 
 .btn--rounded:hover .btn__label:after,
 .btn--rounded[active="true"] .btn__label:after {
-  max-width: 0;
+  min-width: 0;
 }
 
 .btn--rounded[active="true"]:hover .btn__label:after {
-  max-width: 7px;
+  min-width: 10px;
 }
 
 .btn--rounded[active="true"]:hover .icon--filter {
@@ -179,12 +217,12 @@ a.card:focus {
   padding: 15px 4vw;
 }
 
-.page-wrapper--lister .desc-list-item {
+.page__wrapper--lister .desc-list-item {
   padding: 10px 4vw;
 }
 
 @media (min-width: 992px) {
-  .page-wrapper--lister .desc-list-item {
+  .page__wrapper--lister .desc-list-item {
     padding: 10px 25px;
   }
 }
@@ -221,17 +259,22 @@ a.card:focus {
   border-radius: 50%;
 }
 
-.page-wrapper--detail {
-  max-width: 2000px;
+.page__wrapper--detail {
+  max-width: 900px;
   margin: 0 auto;
 }
 
-.page-wrapper--detail .desc-list-item:first-child dt {
+.page__wrapper--detail .desc-list-item:first-child dt {
   align-self: flex-end;
 }
 
-.page-wrapper--detail .desc-list-item:first-child dd {
-  font-size: 6.5vw;
-  line-height: 6vw;
+h1 {
+  margin: 0;
+  font-size: 5vw;
+  line-height: 5vw;
   font-weight: bold;
+}
+
+.page__wrapper--lister h1 {
+  margin-bottom: 6vw;
 }

@@ -7,6 +7,7 @@ import FilterButton from './FilterButton'
 const DescriptionListItem = ({
   isFilter,
   label,
+  fullView,
   resourceType,
   values
 }) => {
@@ -14,6 +15,7 @@ const DescriptionListItem = ({
   const [resourceValues, setResourceValues] = useState(new Array(values.length))
   const resourceState = resourceType ? state[resourceType] : null
   const textValues = resourceType ? resourceValues : values
+  const ValueTag = fullView && label === 'Name' ? 'h1' : 'div'
 
   useEffect(() => {
     if (resourceType) {
@@ -46,7 +48,7 @@ const DescriptionListItem = ({
               key: values[i]
             } }
           />
-        )) : <div>{ textValues.join(', ') }</div> }
+        )) : <ValueTag>{ textValues.join(', ') }</ValueTag> }
       </dd>
     </div>
   )
@@ -54,12 +56,14 @@ const DescriptionListItem = ({
 
 DescriptionListItem.defaultProps = {
   isFilter: false,
+  fullView: false,
   resourceType: ''
 }
 
 DescriptionListItem.propTypes = {
   isFilter: PropTypes.bool,
   label: PropTypes.string.isRequired,
+  fullView: PropTypes.bool,
   resourceType: PropTypes.string,
   values: PropTypes.arrayOf(PropTypes.string).isRequired
 }

@@ -28,11 +28,11 @@ const FilterButton = ({ classModifier, filter }) => {
       active={ isActive.toString() }
       title={ isActive ? 'Remove filter to display all characters' : `Apply filter to display only the characters from ${label}` }
     >
-      <svg className='icon--filter' xmlns='http://www.w3.org/2000/svg' viewBox='-0 -400 2500 1750' style={{ width:'auto', height:'100%' }}>
-        <g transform='matrix(1,0,0,-1,182.23729,1201.8983)' id='g3015'>
-          <path d='m 1403,1241 q 17,-41 -14,-70 L 896,678 V -64 q 0,-42 -39,-59 -13,-5 -25,-5 -27,0 -45,19 L 531,147 q -19,19 -19,45 V 678 L 19,1171 q -31,29 -14,70 17,39 59,39 h 1280 q 42,0 59,-39 z' id='path3017' style={{ fill: 'currentColor' }}></path>
-        </g>
-      </svg>
+      <span className='icon--filter'>
+        <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1595 295q17 41-14 70l-493 493v742q0 42-39 59-13 5-25 5-27 0-45-19l-256-256q-19-19-19-45v-486l-493-493q-31-29-14-70 17-39 59-39h1280q42 0 59 39z"/>
+        </svg>
+      </span>
       { label && <span className='btn__label'>{ label }</span> }
     </button>
   )
