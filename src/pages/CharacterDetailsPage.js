@@ -29,7 +29,7 @@ const CharacterDetailsPage = () => {
   }, [character, dispatch])
 
   return (
-    <div className='page__wrapper--detail'>
+    <div className='page__wrapper page__wrapper--detail'>
     <Link
       className='btn btn--fixed'
       style={{ display: 'inline-flex' }}

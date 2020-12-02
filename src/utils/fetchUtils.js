@@ -29,6 +29,7 @@ export const parseHeadersLink = (headersLink) => {
  * @param   {Object} kwargs
  * @param   {String} kwargs.url - Path to the API resource
  * @param   {requestCallback} [kwargs.cb] - The callback function to handle the response data
+ * @param   {Object} [kwargs.customOptions] - Request options
  * @returns {Promise<any>} Response object wrapped inside a Promise
  */
 export const fetchApi = async ({ url, cb, customOptions }) => {
@@ -46,7 +47,7 @@ export const fetchApi = async ({ url, cb, customOptions }) => {
 
     return response
   } catch (error) {
-    console.error(error);
+    console.error(error); // IF FOR REAL: register error in error monitoring system
   }
 };
 

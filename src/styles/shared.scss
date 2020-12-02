@@ -19,16 +19,6 @@ $grey-300: #696969;
 $grey-400: #545454;
 
 
-// spacing
-
-$spacer: 10px;
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-
 // typography
 
 h1 {
@@ -54,4 +44,31 @@ body {
 @media screen and (min-width: $screen-xl) {
   h1 { font-size: 2.5rem; }
   body { font-size: 1.2rem; }
+}
+
+
+// spacing
+
+$spacer: 10px;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.page__wrapper {
+  max-width: $screen-xxxl;
+  margin: 0 auto;
+
+  &--lister .desc-list-item {
+    padding: $spacer 4vw;
+  
+    @media (min-width: $screen-md) {
+      padding: $spacer $spacer*2.5;
+    }
+  }
+
+  &--detail .desc-list-item:first-child dt {
+    align-self: flex-end;
+  }
 }
