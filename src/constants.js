@@ -2,8 +2,8 @@ export const API_ROOT = 'https://www.anapioficeandfire.com/api';
 
 export const API_RESOURCES = {
   books: 'https://www.anapioficeandfire.com/api/books',
-  characters: 'https://www.anapioficeandfire.com/api/characters?pageSize=40',
-  houses: 'https://www.anapioficeandfire.com/api/houses?pageSize=40',
+  characters: 'https://www.anapioficeandfire.com/api/characters?pageSize=20',
+  houses: 'https://www.anapioficeandfire.com/api/houses?pageSize=30',
   pictures: 'https://randomuser.me/api/?inc=picture&gender=[gender]'
 };
 

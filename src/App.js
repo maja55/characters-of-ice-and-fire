@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { fetchAll } from './utils/fetchUtils';
+import { fetchApi, fetchAll } from './utils/fetchUtils';
 import { API_RESOURCES } from './constants';
 import reducer from './reducer'
 import AppStateContext, { initialAppState } from './context'
@@ -12,13 +12,16 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, initialAppState);
 
   useEffect(() => {
-    // progressively set characters to state (page by page)
-    fetchAll({
+    // load first page of characters
+    fetchApi({
       url: API_RESOURCES.characters,
-      cb: (data) => dispatch({ type: 'ADD_CHARACTERS', payload: data })
+      cb: (data, nextPage) => {
+        dispatch({ type: 'ADD_CHARACTERS', payload: data })
+        dispatch({ type: 'UPDATE_NEXT_PAGE', payload: nextPage })
+      }
     })
 
-    // progressively set books to state
+    // progressively set all books to state (page by page)
     fetchAll({
       url: API_RESOURCES.books,
       cb: (data) => dispatch({ type: 'ADD_BOOKS', payload: data })

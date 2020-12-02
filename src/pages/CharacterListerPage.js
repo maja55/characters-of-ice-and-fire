@@ -3,25 +3,28 @@ import { Link } from 'react-router-dom'
 import StateContext from '../context'
 import DescriptionList from '../components/DescriptionList'
 import FilterButton from '../components/FilterButton'
+import OnScrollLoader from '../components/OnScrollLoader'
 
 
 const CharacterListerPage = () => {
-  const { characters, activeFilter } = useContext(StateContext)
+  const { characters, activeFilter, nextPage } = useContext(StateContext)
 
   return (
     <div className='page__wrapper page__wrapper--lister'>
       { activeFilter ?
         <Fragment>
-          <h1>Characters from <i>{activeFilter.label}</i></h1>
+          <h1>Characters from <i>{ activeFilter.label }</i></h1>
           <FilterButton
             classModifier="fixed"
             filter={ { ...activeFilter, label: 'Clear filter' } }
           />
         </Fragment>
-      : <h1>Characters of Ice and Fire</h1> }
+        :
+        <h1>Characters of Ice and Fire</h1>
+      }
       <br/>
       <br/>
-      { characters && !!characters.size ?
+      { characters && !!characters.size &&
         <ul className='grid-list'>
           { Array.from(characters).map(([url, character]) => {
             if (!activeFilter || character[activeFilter.type].includes(activeFilter.key)) {
@@ -42,9 +45,9 @@ const CharacterListerPage = () => {
             return null
           }) }
         </ul>
-        :
-        '...loading' // TODO: create Loader component
-      } 
+      }
+      <br/>
+      { nextPage && <OnScrollLoader url={ nextPage } /> }
     </div>
   )
 }

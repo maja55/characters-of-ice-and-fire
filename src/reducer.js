@@ -6,6 +6,9 @@ const reducer = (state, { type, payload }) => {
       const newCharacters = new Map(payload.map(character => [character.url, character]))
       newState.characters = new Map([...state.characters, ...newCharacters])
       break;
+    case 'UPDATE_NEXT_PAGE':
+      newState.nextPage = payload
+      break;
     case 'ADD_BOOKS':
       const newBooks = new Map(payload.map(({ url, name }) => [url, { name }]))
       newState.books = new Map([...state.books, ...newBooks])

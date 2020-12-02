@@ -30,7 +30,7 @@ export const parseHeadersLink = (headersLink) => {
  * @param   {String} kwargs.url - Path to the API resource
  * @param   {requestCallback} [kwargs.cb] - The callback function to handle the response data
  * @param   {Object} [kwargs.customOptions] - Request options
- * @returns {Promise<any>} Response object wrapped inside a Promise
+ * @returns {Promise<any>} Object containing data and parsed headers link wrapped inside a Promise
  */
 export const fetchApi = async ({ url, cb, customOptions }) => {
   const options = {
@@ -42,10 +42,11 @@ export const fetchApi = async ({ url, cb, customOptions }) => {
   try {
     const response = await fetch(url, options);
     const data = await response.json();
+    const headersLink = parseHeadersLink(response.headers.get('Link'))
 
-    if (data && cb) cb(data);
+    if (data && cb) cb(data, headersLink.next);
 
-    return response
+    return { data, headersLink }
   } catch (error) {
     console.error(error); // IF FOR REAL: register error in error monitoring system
   }
@@ -63,8 +64,8 @@ export const fetchAll = async ({ url, cb }) => {
 
   while (next) {
     try {
-      const { headers } = await fetchApi({ url: next, cb });
-      ({ next } = parseHeadersLink(headers.get('Link')));
+      const { headersLink } = await fetchApi({ url: next, cb });
+      ({ next } = headersLink);
     } catch {
       next = undefined;
     }
