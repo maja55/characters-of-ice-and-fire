@@ -13,7 +13,7 @@ Project was bootstrapped with [Create React App](https://github.com/facebook/cre
 * [Available Scripts](#available-scripts)
 * [Deployment](#deployment-and-ci)
 * [Technologies](#technologies)
-* [Wip](#todo)
+* [WIP](#todo)
 
 
 ## Installing
