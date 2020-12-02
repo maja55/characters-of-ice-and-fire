@@ -18,8 +18,10 @@ const CharacterListerPage = () => {
             filter={ { ...activeFilter, label: 'Clear filter' } }
           />
         </Fragment>
-      : <h1>All Characters of Ice and Fire</h1> }
-      { characters ?
+      : <h1>Characters of Ice and Fire</h1> }
+      <br/>
+      <br/>
+      { characters && !!characters.size ?
         <ul className='grid-list'>
           { Array.from(characters).map(([url, character]) => {
             if (!activeFilter || character[activeFilter.type].includes(activeFilter.key)) {
@@ -40,7 +42,9 @@ const CharacterListerPage = () => {
             return null
           }) }
         </ul>
-      : '...loading' }
+        :
+        '...loading' // TODO: create Loader component
+      } 
     </div>
   )
 }

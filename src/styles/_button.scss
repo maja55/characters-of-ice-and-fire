@@ -1,0 +1,132 @@
+button, a {
+  text-decoration: none;
+  color: $grey-400;
+
+  &:focus {
+    outline: none;
+    border: 2px solid $dark;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: inherit;
+  color: $grey-400;
+  white-space: nowrap;
+  padding: $spacer/2;
+}
+
+.btn__label {
+  vertical-align: middle;
+}
+
+.btn__icon--svg {
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+
+  svg {
+    fill: currentColor;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+// fixed variant
+
+.btn--fixed {
+  position: fixed;
+  bottom: 2vw;
+  right: 2vw;
+  z-index: 1;
+  padding: $spacer;
+  border-radius: $spacer*2.5;
+  font-size: $spacer*2;
+  line-height: $spacer*3;
+  min-width: $spacer*5;
+  max-width: $spacer*5;
+  height: $spacer*5;
+  background-color: $grey-100;
+  box-shadow: 0px 0px $spacer/2 $spacer/4 rgba(0,0,0,0.1);
+  transition: box-shadow 0.5s ease-in, max-width 0.7s ease-in-out;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 0px 0px $spacer $spacer/2 rgba(0,0,0,0.1);
+    max-width: 500px;
+  }
+
+  .btn__icon--font {
+    font-size: 32px;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: $spacer*2;
+  }
+
+  .btn__icon--svg {
+    width: $spacer*3;
+    height: $spacer*3;
+    margin-right: $spacer;
+  }
+}
+
+
+// inline variant with rounded corners
+
+.btn--rounded {
+  border: 1px solid $grey-300;
+  border-radius: $spacer*2;
+
+  .btn__icon {
+    width: $spacer*2;
+    height: $spacer*2;
+    max-width: $spacer;
+    transition: max-width 0.3s ease-in, opacity 0.2s ease-in;
+    opacity: 0;
+
+    svg {
+      padding-right: 3px;
+    }
+  }
+
+  .btn__label:after {
+    content: '';
+    display: inline-block;
+    transition: min-width 0.3s ease-in;
+    min-width: $spacer;
+  }
+
+  &:hover,
+  &[active="true"] {
+    .btn__icon {
+      max-width: $spacer*2;
+      opacity: 1;
+    }
+
+    .btn__label:after {
+      min-width: 0;
+    }
+  }
+
+  &[active="true"] {
+    background-color: $grey-300;
+    color: $light;
+
+    &:hover {
+      .btn__icon {
+        max-width: $spacer;
+        opacity: 0;
+      }
+
+      .btn__label:after {
+        min-width: $spacer;
+      }
+    }
+  }
+}
