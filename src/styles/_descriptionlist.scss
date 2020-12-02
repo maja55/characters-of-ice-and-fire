@@ -41,15 +41,3 @@ dl.desc-list {
     margin: 0 2px 4px;
   }
 }
-
-.page__wrapper--lister .desc-list-item {
-  padding: $spacer 4vw;
-
-  @media (min-width: $screen-md) {
-    padding: $spacer $spacer*2.5;
-  }
-}
-
-.page__wrapper--detail .desc-list-item:first-child dt {
-  align-self: flex-end;
-}

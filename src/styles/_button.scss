@@ -16,6 +16,11 @@ button, a {
   color: $grey-400;
   white-space: nowrap;
   padding: $spacer/2;
+
+  &[active="true"] {
+    background-color: $grey-300;
+    color: $light;
+  }
 }
 
 .btn__label {
@@ -114,19 +119,14 @@ button, a {
     }
   }
 
-  &[active="true"] {
-    background-color: $grey-300;
-    color: $light;
+  &[active="true"]:hover {
+    .btn__icon {
+      max-width: $spacer;
+      opacity: 0;
+    }
 
-    &:hover {
-      .btn__icon {
-        max-width: $spacer;
-        opacity: 0;
-      }
-
-      .btn__label:after {
-        min-width: $spacer;
-      }
+    .btn__label:after {
+      min-width: $spacer;
     }
   }
 }

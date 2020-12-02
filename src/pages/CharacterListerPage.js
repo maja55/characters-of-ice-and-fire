@@ -9,7 +9,7 @@ const CharacterListerPage = () => {
   const { characters, activeFilter } = useContext(StateContext)
 
   return (
-    <div className='page__wrapper--lister'>
+    <div className='page__wrapper page__wrapper--lister'>
       { activeFilter ?
         <Fragment>
           <h1>Characters from <i>{activeFilter.label}</i></h1>
