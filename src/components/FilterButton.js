@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import PropTypes from 'prop-types';
 import StateContext from '../context'
+import { LBL } from '../constants'
 
 
 const FilterButton = ({ classModifier, filter }) => {
@@ -26,7 +27,7 @@ const FilterButton = ({ classModifier, filter }) => {
       className={ `btn btn--${classModifier} btn--filter` }
       onClick={ toggleFilter }
       active={ isActive.toString() }
-      title={ isActive ? 'Remove filter to display all characters' : `Apply filter to display only the characters from ${label}` }
+      title={ isActive ? LBL.clearFilterTitle : LBL.setFilterTitle.replace('{}', label) }
     >
       <span className='btn__icon btn__icon--svg'>
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">

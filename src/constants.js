@@ -48,3 +48,12 @@ export const CHARACTER_FIELDS = [{
   isPrimary: true,
   isFilter: true,
 }];
+
+export const LBL = {
+  backButton: 'Back to all characters list',
+  clearFilter: 'Clear filter',
+  clearFilterTitle: 'Remove filter to display all characters',
+  setFilterTitle: 'Apply filter to display only the characters from {}',
+  listerTitle: 'Characters of Ice and Fire',
+  filteredListerPrefix: 'Characters from '
+};

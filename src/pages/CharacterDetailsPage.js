@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { API_RESOURCES } from '../constants';
+import { API_RESOURCES, LBL } from '../constants';
 import { fetchApi } from '../utils/fetchUtils';
 import StateContext from '../context'
 import DescriptionList from '../components/DescriptionList';
@@ -43,9 +43,10 @@ const CharacterDetailsPage = () => {
     <Link
       className='btn btn--fixed'
       style={{ display: 'inline-flex' }}
-      to='/'>
+      to='/'
+    >
       <span className='btn__icon btn__icon--font'>←</span>
-      <span className='btn__label'>Back to all characters list</span>
+      <span className='btn__label'>{ LBL.backButton }</span>
     </Link>
     { character ?
       <div className='card'>
@@ -60,7 +61,7 @@ const CharacterDetailsPage = () => {
         />
       </div>
       :
-      '...loading' // TODO: create Loader component
+      <div className='loader' />
     }
     </div>
   )
