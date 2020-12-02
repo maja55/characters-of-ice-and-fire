@@ -1,6 +1,6 @@
 # characters-of-ice-and-fire
 
-Repository containing Front End code and styles for `Characters of Ice and Fire` web application developed as technical assignment.
+Repository containing Front End code and styles for `Characters of Ice and Fire`(https://characters-of-ice-and-fire.netlify.app/) web application developed as technical assignment.
 
 Project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -11,8 +11,9 @@ Project was bootstrapped with [Create React App](https://github.com/facebook/cre
 * [Installing](#installing)
 * [Prerequisites](#prerequisites)
 * [Available Scripts](#available-scripts)
-* [Deployment](#deployment)
+* [Deployment](#deployment-and-ci)
 * [Technologies](#technologies)
+
 
 ## Installing
 
@@ -21,11 +22,13 @@ Copy the repository locally run:
 git clone https://github.com/maja55/characters-of-ice-and-fire.git
 ```
 
+
 ### Prerequisites
 
 To run the code in this repository you need to have the following installed on your machine:
 * [git](https://git-scm.com/)
 * [npm & node ](https://nodejs.org/en/)
+
 
 ## Available Scripts
 
@@ -44,11 +47,13 @@ To build the app for production to the `build` folder
 yarn build
 ```
 
+
 ## Deployment and CI
 
-Application is running at (https://characters-of-ice-and-fire.netlify.app/)
+Application is running at https://characters-of-ice-and-fire.netlify.app/
 
 All Pull Requests merged this repository's `master` branch will automatically deploy to Netlify CDN
+
 
 ## Technologies
 

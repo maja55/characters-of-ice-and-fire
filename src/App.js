@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     // progressively set characters to state (page by page)
     fetchAll({
-      url: API_RESOURCES.charactersDev,
+      url: API_RESOURCES.characters,
       cb: (data) => dispatch({ type: 'ADD_CHARACTERS', payload: data })
     })
 
