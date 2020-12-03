@@ -12,7 +12,3 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById('root')
 );
-
-// Uncomment to measure performance. https://bit.ly/CRA-vitals
-// import reportWebVitals from './utils/reportWebVitals';
-// reportWebVitals(console.log);
