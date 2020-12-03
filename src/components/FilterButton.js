@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import StateContext from '../context'
 import { LBL } from '../constants'
 
@@ -52,4 +52,4 @@ FilterButton.propTypes = {
   }).isRequired
 }
 
-export default FilterButton;
+export default FilterButton

@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { CHARACTER_FIELDS } from '../constants';
-import { ensureArray } from '../utils/objectUtils';
-import DescriptionListItem from './DescriptionListItem';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { CHARACTER_FIELDS } from '../constants'
+import { ensureArray } from '../utils/objectUtils'
+import DescriptionListItem from './DescriptionListItem'
 
 const DescriptionList = ({ character, fullView=false }) => {
   return (
@@ -42,6 +42,6 @@ DescriptionList.propTypes = {
     url: PropTypes.string.isRequired
   }).isRequired,
   fullView: PropTypes.bool
-};
+}
 
-export default DescriptionList;
+export default DescriptionList

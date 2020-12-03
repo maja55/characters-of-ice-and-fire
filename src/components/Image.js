@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import { PLACEHOLDER_IMG } from '../constants'
 
 export const Image = ({
@@ -29,4 +29,4 @@ Image.propTypes = {
   medium: PropTypes.string
 }
 
-export default Image;
+export default Image

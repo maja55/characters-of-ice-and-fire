@@ -1,13 +1,13 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext } from 'react'
 import PropTypes from 'prop-types'
-import { fetchApi } from '../utils/fetchUtils';
+import { fetchApi } from '../utils/fetchUtils'
 import { useIntersectionObserver } from '../hooks'
 import StateContext from '../context'
 
 
 const OnScrollLoader = ({ url }) => {
-  const targetRef = useRef(null);
-  const { dispatch } = useContext(StateContext);
+  const targetRef = useRef(null)
+  const { dispatch } = useContext(StateContext)
 
   useIntersectionObserver({
       onIntersect: () => fetchApi({
@@ -20,7 +20,7 @@ const OnScrollLoader = ({ url }) => {
       targetRef,
       rootMargin: '1000px', // trigger fetch 1000px before loader element
       threshold: 0
-  });
+  })
 
   return <div ref={ targetRef } className='loader' />
 }

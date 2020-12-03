@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import StateContext from '../context'
-import { fetchApi } from '../utils/fetchUtils';
+import { fetchApi } from '../utils/fetchUtils'
 import FilterButton from './FilterButton'
 
 
