@@ -1,8 +1,8 @@
 import reducer from './reducer';
 import { initialAppState } from './context'
-import { books } from './__data__/books.json'
-import { characters } from './__data__/characters.json'
-import { houses } from './__data__/houses.json'
+import { books } from './mocks/__data__/books.json'
+import { characters } from './mocks/__data__/characters.json'
+import { houses } from './mocks/__data__/houses.json'
 
 const mockFilter = { type: 'books', key: 'test' }
 const mockPictureUrl = 'https://test_picture_url'
