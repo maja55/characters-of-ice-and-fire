@@ -62,6 +62,9 @@ The tech stack core of the project:
 * [React](https://reactjs.org/) - A JavaScript library for building user interfaces
 * [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html) - A JavaScript library for typechecking props on react components
 * [ReactRouter](https://reactrouter.com/) - A collection of navigational components for Client Side Routing
+* [Jest](https://jestjs.io/) - Testing framework
+* [TestingLibrary](https://testing-library.com/) - Testing utilities for react components
+* [MockServiceWorker](msw) - API mocking library for browser and Node
 * [SASS](https://sass-lang.com/) - CSS extension language
 
 

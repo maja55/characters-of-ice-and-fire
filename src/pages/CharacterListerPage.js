@@ -26,13 +26,14 @@ const CharacterListerPage = () => {
       <br/>
       <br/>
       { characters && !!characters.size &&
-        <ul className='grid-list'>
+        <ul className='grid-list' data-testid='characters-list'>
           { Array.from(characters).map(([url, character]) => {
             if (!activeFilter || character[activeFilter.type].includes(activeFilter.key)) {
               return (
                 <li
                   key={ url }
                   className='grid-list-item'
+                  data-testid='character-card'
                 >
                   <Link
                     to={ `/${url.split('/').pop()}` }
