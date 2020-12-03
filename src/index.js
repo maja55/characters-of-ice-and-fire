@@ -4,15 +4,13 @@ import { BrowserRouter } from 'react-router-dom';
 import './styles/index.scss';
 import App from './App';
 
-ReactDOM.render(
+// trying out experimental Concurrent Mode (https://reactjs.org/docs/concurrent-mode-intro.html)
+ReactDOM.unstable_createRoot(
+  document.getElementById('root')
+).render(
   <BrowserRouter>
     <React.StrictMode>
       <App />
     </React.StrictMode>
-  </BrowserRouter>,
-  document.getElementById('root')
+  </BrowserRouter>
 );
-
-// Uncomment to measure performance. https://bit.ly/CRA-vitals
-// import reportWebVitals from './utils/reportWebVitals';
-// reportWebVitals(console.log);

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense, SuspenseList } from 'react'
 import PropTypes from 'prop-types'
 import ResourceValueLoader from './ResourceValueLoader'
 
@@ -18,19 +18,23 @@ const DescriptionListItem = ({
       <dd>
         { (values.length === 0 || !values[0]) && <div>/</div> }
         { 
-          resourceType ? 
-            values.map((value, i) => (
-              <ResourceValueLoader
-                key={ value }
-                isFilter={ isFilter }
-                isLast={ i === values.length - 1 }
-                resourceType={ resourceType }
-                url={ value }
-              />
-            ))
-          : 
-            <ValueTag>{ values.join(', ') }</ValueTag>
-        }
+          resourceType ?
+            <SuspenseList revealOrder='forwards' tail='collapsed'>
+              { values.map((value, i) => (
+                <Suspense fallback={ <div className='loader loader--inline' /> }>
+                  <ResourceValueLoader
+                    key={ value }
+                    isFilter={ isFilter }
+                    isLast={ i === values.length - 1 }
+                    resourceType={ resourceType }
+                    url={ value }
+                  />
+                </Suspense>
+              )) }
+            </SuspenseList>
+            : 
+              <ValueTag>{ values.join(', ') }</ValueTag>
+          }
       </dd>
     </div>
   )

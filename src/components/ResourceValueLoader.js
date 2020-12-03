@@ -7,11 +7,11 @@ import FilterButton from './FilterButton'
 
 const ResourceValueLoader = ({ isFilter, isLast, url, resourceType }) => {
   const { dispatch, ...state } = useContext(StateContext)
-  const resourceState = state[resourceType]
-  const { name, isLoading } = resourceState.get(url) || {}
+  const resourceState = state[resourceType].get(url)
+  const name = resourceState && resourceState.name
 
   useEffect(() => {
-    if (!name && resourceType !== 'books' && !isLoading) {
+    if ((!resourceState || (!resourceState.name && !resourceState.isLoading)) && resourceType !== 'books') {
       const actionType = `ADD_${resourceType.replace(/s$/, '').toUpperCase()}`
       
       dispatch({
@@ -23,24 +23,20 @@ const ResourceValueLoader = ({ isFilter, isLast, url, resourceType }) => {
         payload: { data, url } 
       }) })
     }
-  }, [dispatch, url, name, isLoading, resourceType])
+  }, [dispatch, url, resourceState, resourceType])
 
   return (
     <React.Fragment>
-      { 
-        name ? 
-          isFilter ?
-            <FilterButton
-              filter={ {
-                label: name,
-                type: resourceType,
-                key: url
-              } }
-            />
-          :
-            `${name}${isLast ? '' : ', '}`
-        :
-          <div className='loader loader--inline' />
+      { isFilter ?
+        <FilterButton
+          filter={ {
+            label: name,
+            type: resourceType,
+            key: url
+          } }
+        />
+      :
+        `${name}${isLast ? '' : ', '}`
       }
     </React.Fragment>
   )
