@@ -1,17 +1,21 @@
-import React, { useContext, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { API_RESOURCES, LBL } from '../constants';
-import { fetchApi } from '../utils/fetchUtils';
+import React, { useContext, useEffect, useLayoutEffect } from 'react'
+import { useParams, Link } from 'react-router-dom'
+import { API_RESOURCES, LBL } from '../constants'
+import { fetchApi } from '../utils/fetchUtils'
 import StateContext from '../context'
-import DescriptionList from '../components/DescriptionList';
-import Image from '../components/Image';
+import DescriptionList from '../components/DescriptionList'
+import Image from '../components/Image'
 
 
 const CharacterDetailsPage = () => {
-  const { characterId } = useParams();
+  const { characterId } = useParams()
   const characterUrl = [API_RESOURCES.characters.split('?')[0], characterId].join('/')
-  const { characters, dispatch } = useContext(StateContext);
-  const character = characters.get(characterUrl);
+  const { characters, dispatch } = useContext(StateContext)
+  const character = characters.get(characterUrl)
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  })
 
   useEffect(() => {
     if (!character) {
@@ -67,4 +71,4 @@ const CharacterDetailsPage = () => {
   )
 }
 
-export default CharacterDetailsPage;
+export default CharacterDetailsPage
